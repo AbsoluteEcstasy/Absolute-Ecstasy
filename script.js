@@ -6,10 +6,44 @@ const dialogues = [
   "その調子で親密度を上げて",
   "タップ、好きなの？",
   "あなたも暇なのね",
-  "まだデータが足りないわ",
+  "データが足りないわ",
   "あら、まだいたの？",
   "実験開始よ"
 ];
+
+const characters = [
+  {
+    name: "榊 あぐり",
+    image: "あぐり仮.png"
+  },
+
+  {
+    name: "巫 ねがい",
+    image: "kiriko.png"
+  },
+
+  {
+    name: "柊 めざめ",
+    image: "hinana.png"
+  }
+];
+let currentCharacter = 0;
+document.getElementById("change-btn")
+.addEventListener("click", () => {
+
+  currentCharacter++;
+
+  if(currentCharacter >= characters.length){
+    currentCharacter = 0;
+  }
+
+  character.src =
+    characters[currentCharacter].image;
+
+  document.getElementById("character-name")
+    .textContent =
+    characters[currentCharacter].name;
+});
 
 const cards = [
   {
@@ -146,3 +180,48 @@ document.getElementById("login-btn").addEventListener("click", () => {
 });
 
 updateUI();
+
+let loveLevel =
+  Number(localStorage.getItem("loveLevel"))
+  || 1;
+  function getLoveCost(){
+
+  return 100 + (loveLevel * 40);
+
+}
+document.getElementById("bond-btn")
+.addEventListener("click", () => {
+
+  if(loveLevel >= 30){
+    alert("好感度MAX");
+    return;
+  }
+
+  const cost = getLoveCost();
+
+  const ok = confirm(
+    `♡${cost}を消費して
+好感度を上げますか？`
+  );
+
+  if(!ok) return;
+
+  if(hearts < cost){
+    alert("♡不足");
+    return;
+  }
+
+  hearts -= cost;
+
+  loveLevel++;
+
+  localStorage.setItem(
+    "loveLevel",
+    loveLevel
+  );
+
+  updateUI();
+});
+document.getElementById("love-level")
+.textContent =
+`好感度 Lv${loveLevel}`;
