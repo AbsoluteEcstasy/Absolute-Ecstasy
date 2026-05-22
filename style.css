@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+    url("帝國背景.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.topbar {
+  height: 64px;
+  background: #111;
+  border-bottom: 2px solid #ff003c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.logo {
+  font-weight: bold;
+  color: #ff003c;
+}
+
+.heart-counter {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.character-area {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#character {
+  width: 72%;
+  max-width: 340px;
+  filter: drop-shadow(0 0 18px rgba(255,0,60,0.35));
+}
+
+.dialogue-box {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  max-width: 220px;
+
+  background: rgba(20,20,20,0.92);
+  border: 2px solid #ff003c;
+
+  border-radius: 18px;
+  padding: 14px;
+
+  min-height: auto;
+
+  z-index: 3;
+
+  box-shadow: 0 0 15px rgba(255,0,60,0.4);
+}
+
+.dialogue-box::after {
+  content: "";
+
+  position: absolute;
+  bottom: -12px;
+  left: 25px;
+
+  border-width: 12px 12px 0 12px;
+  border-style: solid;
+
+  border-color:
+    #ff003c transparent transparent transparent;
+}
+
+.dialogue-box p {
+  line-height: 1.5;
+}
+
+.gacha-section {
+  padding: 12px 16px;
+}
+
+#gacha-btn,
+#login-btn,
+#close-gacha {
+  width: 100%;
+  background: linear-gradient(180deg, #ff003c, #9c001f);
+  border: none;
+  color: white;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.collection-section {
+  padding: 16px;
+}
+
+.collection-section h2 {
+  margin-bottom: 12px;
+  color: #ff003c;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.card {
+  background: #121212;
+  border: 2px solid #ff003c;
+  border-radius: 12px;
+  overflow: hidden;
+  animation: fadeIn 0.4s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card-name {
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal,
+.gacha-modal {
+  width: 90%;
+  background: #111;
+  border: 2px solid #ff003c;
+  border-radius: 18px;
+  padding: 24px;
+  text-align: center;
+}
+
+.modal h1 {
+  color: #ff003c;
+  margin-bottom: 12px;
+}
+
+.modal input {
+  width: 100%;
+  margin: 16px 0;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #ff003c;
+  background: #1a1a1a;
+  color: white;
+}
+
+#password-error {
+  color: #ff5577;
+  margin-top: 10px;
+}
+
+.plus-heart {
+  position: absolute;
+  color: #ff3366;
+  font-weight: bold;
+  font-size: 28px;
+  animation: floatUp 1s forwards;
+  pointer-events: none;
+}
+
+.gacha-flash {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff003c, transparent);
+  animation: pulse 1s infinite;
+}
+
+.gacha-text {
+  margin-bottom: 20px;
+}
+
+#gacha-result img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(1.5);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

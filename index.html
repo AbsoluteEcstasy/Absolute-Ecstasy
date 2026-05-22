@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Absolute Ecstasy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="password-screen" class="overlay">
+    <div class="modal">
+      <h1>Absolute Ecstasy</h1>
+      <p>合言葉を入力してください</p>
+      <input type="password" id="password-input" placeholder="Password">
+      <button id="login-btn">ENTER</button>
+      <p id="password-error"></p>
+    </div>
+  </div>
+
+  <main id="game" class="hidden">
+    <header class="topbar">
+      <div class="logo">Absolute Ecstasy</div>
+      <div class="heart-counter">♡ <span id="heart-count">0</span></div>
+    </header>
+
+    <section class="character-area">
+      <div id="effect-container"></div>
+
+      <img
+        id="character"
+        src="あぐり仮.png"
+        alt="character"
+      >
+
+      <div class="dialogue-box">
+        <p id="dialogue">タップして親密度を上げよう…♡</p>
+      </div>
+    </section>
+
+    <section class="gacha-section">
+      <button id="gacha-btn">100♡でガシャ</button>
+    </section>
+
+    <section class="collection-section">
+      <h2>COLLECTION</h2>
+      <div id="card-list" class="card-list"></div>
+    </section>
+  </main>
+
+  <div id="gacha-overlay" class="overlay hidden">
+    <div class="gacha-modal">
+      <div class="gacha-flash"></div>
+      <p class="gacha-text">NOW LOADING...</p>
+      <div id="gacha-result"></div>
+      <button id="close-gacha">閉じる</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
