@@ -7,55 +7,69 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="password-screen" class="overlay">
-    <div class="modal">
-      <h1>Absolute Ecstasy</h1>
-      <p>合言葉を入力してください</p>
-      <input type="password" id="password-input" placeholder="Password">
-      <button id="login-btn">ENTER</button>
-      <p id="password-error"></p>
-    </div>
+
+<div id="password-screen" class="overlay">
+  <div class="modal">
+    <h1>Absolute Ecstasy</h1>
+    <p>合言葉を入力してください</p>
+    <input type="password" id="password-input" placeholder="Password">
+    <button id="login-btn">ENTER</button>
+    <p id="password-error"></p>
+  </div>
+</div>
+
+<main id="game" class="hidden">
+
+<header class="topbar">
+  <div class="logo">Absolute Ecstasy</div>
+
+  <div class="status-right">
+    <div id="character-name">榊 あぐり</div>
+    <div id="love-level">好感度 Lv1</div>
+    <div class="heart-counter">♡ <span id="heart-count">0</span></div>
+  </div>
+</header>
+
+<section class="character-area">
+
+  <button id="bond-btn">交歓</button>
+
+  <div id="effect-container"></div>
+
+  <img
+    id="character"
+    src="あぐり仮.png"
+    alt="character"
+  >
+
+  <div class="dialogue-box">
+    <p id="dialogue">タップして親密度を上げよう…♡</p>
   </div>
 
-  <main id="game" class="hidden">
-    <header class="topbar">
-      <div class="logo">Absolute Ecstasy</div>
-      <div class="heart-counter">♡ <span id="heart-count">0</span></div>
-    </header>
+</section>
 
-    <section class="character-area">
-      <div id="effect-container"></div>
+<div class="bottom-menu">
+  <button id="gacha-btn">ガシャ</button>
+  <button id="gallery-btn">ギャラリー</button>
+  <button id="change-btn">⇄</button>
+</div>
 
-      <img
-        id="character"
-        src="あぐり仮.png"
-        alt="character"
-      >
+<section class="collection-section hidden" id="gallery-section">
+  <h2>GALLERY</h2>
+  <div id="card-list" class="card-list"></div>
+</section>
 
-      <div class="dialogue-box">
-        <p id="dialogue">タップして親密度を上げよう…♡</p>
-      </div>
-    </section>
+</main>
 
-    <section class="gacha-section">
-      <button id="gacha-btn">100♡でガシャ</button>
-    </section>
-
-    <section class="collection-section">
-      <h2>COLLECTION</h2>
-      <div id="card-list" class="card-list"></div>
-    </section>
-  </main>
-
-  <div id="gacha-overlay" class="overlay hidden">
-    <div class="gacha-modal">
-      <div class="gacha-flash"></div>
-      <p class="gacha-text">NOW LOADING...</p>
-      <div id="gacha-result"></div>
-      <button id="close-gacha">閉じる</button>
-    </div>
+<div id="gacha-overlay" class="overlay hidden">
+  <div class="gacha-modal">
+    <div class="gacha-flash"></div>
+    <p class="gacha-text">NOW LOADING...</p>
+    <div id="gacha-result"></div>
+    <button id="close-gacha">閉じる</button>
   </div>
+</div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
